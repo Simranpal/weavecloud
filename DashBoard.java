@@ -237,7 +237,7 @@ class DashBoard extends JFrame implements ActionListener {
     public void setConnectedStatus(boolean val) {
         isConnected = val;
         if(isConnected) setStatus("Connected to WeaveCloud Server.");
-        else            setStatus("Disonnected from WeaveCloud Server.");
+        else            setStatus("Disconnected from WeaveCloud Server.");
     }
 
     public void connectServer() {
@@ -261,7 +261,7 @@ class DashBoard extends JFrame implements ActionListener {
             }
         }
         if(!isConnected) {
-            setStatus("Quiting application...");
+            setStatus("Closing application...");
             doSleep(1000);
             System.exit(1);
         }
