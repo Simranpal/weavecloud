@@ -54,15 +54,15 @@ class Registration  extends JDialog implements ActionListener ,ItemListener{
 		lblEmail   = new JLabel("Email");
 		
 		//Field validators
-		lblIFname = new JLabel("Invalid First Name");
-		lblILname = new JLabel("Invalid Last Name");
+		lblIFname = new JLabel("Invalid Characters in First Name");
+		lblILname = new JLabel("Invalid Characters in Last Name");
 		lblIUname  = new JLabel("Invalid User Name"); 
 		lblIPwd = new JLabel("Password do not match");
 		lblIDate = new JLabel("Please Check the Date");
 		lblIEmail = new JLabel("Incorrect Email");
 		lblEpwd = new JLabel("Please enter the password");
 	    lblESans = new JLabel("Please enter the Security Answer");
-		lblEEmail = new JLabel("Please enter the email-id");
+		lblEEmail = new JLabel("Please enter your email");
 		lblIFname.setForeground(Color.red);
 		lblILname.setForeground(Color.red);
 		lblIUname.setForeground(Color.red);
