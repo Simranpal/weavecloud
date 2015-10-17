@@ -1,0 +1,55 @@
+import javax.swing.*;
+import javax.swing.tree.*;
+import java.awt.*;
+import java.io.*;
+import javax.swing.event.*;
+
+class DemoTree extends JFrame implements TreeSelectionListener{
+	JTree tree;
+	DefaultMutableTreeNode root;
+	String UFLDsimran ="UFLDd*java:d*songs:f*xyz.doc:f*abc.txt";
+	String UFLDjava = "UFLDd*sub1:d*sub2:f*abc.java";
+	String UFLDsongs ="UFLDd*english:d*punjabi:f*a.mp3";
+	String UFLDsub1 = "UFLDd*subbb1";
+	String UFLDsub2 = "UFLDd*subbb2";
+	DemoTree() {
+		super("Tree");
+		root = new DefaultMutableTreeNode("Vari", true);
+		addNodes(root, new File("C:\\Documents and Settings\\123\\Desktop\\javadocs"));
+		setLayout(new BorderLayout());
+		tree = new JTree(root);
+		add(tree,BorderLayout.CENTER);
+		tree.addTreeSelectionListener(this);
+		setSize(800,800);
+		setVisible(true);
+
+	}
+   	public void addNodes(DefaultMutableTreeNode node, File f) {
+		if(f.isFile()) {
+			DefaultMutableTreeNode child = new DefaultMutableTreeNode(f.toString().substring(f.toString().lastIndexOf("\\")+1));
+			node.add(child);
+		}
+		else {
+			DefaultMutableTreeNode child = new DefaultMutableTreeNode(f.toString().substring(f.toString().lastIndexOf("\\")+1));
+			node.add(child);	
+			File all[] = f.listFiles();
+			for(int i = 0; i < all.length; i++) addNodes(child, all[i]);
+		}
+	}
+    public void	valueChanged(TreeSelectionEvent e) {
+		String path = e.getPath().toString(); 
+		composeUFLR(path);
+	}
+	public void composeUFLR(String finalPath) {
+		String a  = finalPath.substring(1,path.length()-1);
+		finalPath = a.replace(',','\\');
+		finalPath = finalPath.replaceAll(" ","");
+		String UFLR ="UFLR"+finalPath;
+		System.out.println("Selected request is "+UFLR);	
+	}
+	public void parseUFLD(String ) {
+	}
+	public static void main(String s[]){
+		new DemoTree();
+	}
+}
